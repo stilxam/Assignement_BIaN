@@ -11,3 +11,24 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+library(devtools)
+library(nstandr)
+library(dplyr)
+
+csv_database <- read.csv(file = "/Users/zygimantaskrasauskas/Desktop/Export_12_10_2022_19_13.csv", sep = ";")
+company_names <- c(csv_database$Company.name.Latin.alphabet %>% standardize_magerman())
+
+filename = file.choose()
+sdc_data=readRDS(filename)
+sdc_company_names <- c(sdc_data$participants %>% standardize_magerman())
+
+for (value in company_names){
+  
+  if (value %in% sdc_company_names){
+    
+    print(value)
+    
+  }
+}
+
