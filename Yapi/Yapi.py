@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 cmpnyLs = ["ASML", "AAPL"] # import list of company stock symbols
 DF = pd.DataFrame()
+output = pd.DataFrame()
 for company in cmpnyLs:
     dateDF = pd.DataFrame()
     dateDF["Earnings Date"] = yf.Ticker(company).earnings_history["Earnings Date"] #pulls dates of earning
@@ -13,7 +14,9 @@ for company in cmpnyLs:
         dateDF["Earnings Date"][i] = datetime.strptime(f'{noHours[0]},{noHours[1]}', "%b %d, %Y").date()
     DF["Earnings Date"] = dateDF["Earnings Date"] #merges Date into DF
     DF[f'EPS {company}'] = yf.Ticker(company).earnings_history["Reported EPS"].copy() #pulls earnings per share into dataframe
-DF.to_csv("earnings.csv", index=False)
+
+output = DF.iloc[:12]
+output.to_csv("earnings.csv", index = False)
 
 
 dfClose = pd.DataFrame()
