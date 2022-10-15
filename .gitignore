@@ -48,3 +48,5 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 BIAN/SDC_data_2021.rds
+Yapi/ClosePrice.csv
+Yapi/earnings.csv
