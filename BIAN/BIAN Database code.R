@@ -6,14 +6,14 @@ top_100_database <- read.csv(file = "top_100_database.csv", sep = ",")
 sdc_database <- read.csv(file = "sdc_database.csv", sep = ",")
 
 sdc_database$date_announced <- substr((sdc_database$date_announced), 1, 4)
-sdc_2019_2021 <- sdc_database[sdc_database$date_announced %in% c('2019', '2020', '2021'), ]
+sdc_interest <- sdc_database[sdc_database$date_announced %in% c(2020:2021), ]
 
 top_100_names <- top_100_database$Company.name.Latin.alphabet
 
-selected_names_db <- sdc_2019_2021[sdc_2019_2021$participants %in% top_100_names, ]
+selected_names_db <- sdc_interest[sdc_interest$participants %in% top_100_names, ]
 relevant_deal_numbers <- unique(c(selected_names_db$deal_number))
 
-db_based_on_deal <- sdc_2019_2021[sdc_2019_2021$deal_number %in% relevant_deal_numbers, ]
+db_based_on_deal <- sdc_interest[sdc_interest$deal_number %in% relevant_deal_numbers, ]
 unique_common_names <- unique(c(db_based_on_deal$participants))
 
 company_matrix <- matrix(, nrow = length(unique_common_names), ncol = length(unique_common_names))
