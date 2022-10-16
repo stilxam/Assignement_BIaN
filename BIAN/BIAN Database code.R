@@ -2,8 +2,8 @@ library(devtools)
 library(nstandr)
 library(dplyr)
 
-top_100_database <- read.csv(file = "/Users/zygimantaskrasauskas/Desktop/BIAN/Group Project/top_100_database.csv", sep = ",")
-sdc_database <- read.csv(file = "/Users/zygimantaskrasauskas/Desktop/BIAN/Group Project/sdc_database.csv", sep = ",")
+top_100_database <- read.csv(file = "top_100_database.csv", sep = ",")
+sdc_database <- read.csv(file = "sdc_database.csv", sep = ",")
 
 sdc_database$date_announced <- substr((sdc_database$date_announced), 1, 4)
 sdc_2019_2021 <- sdc_database[sdc_database$date_announced %in% c('2019', '2020', '2021'), ]
