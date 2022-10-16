@@ -5,6 +5,9 @@ library(dplyr)
 top_100_database <- read.csv(file = "top_100_database.csv", sep = ",")
 sdc_database <- read.csv(file = "sdc_database.csv", sep = ",")
 
+#THIS FILTERING IS UNNCESSARY FOR 2018-2019 vs 2020-2021
+# sdc_database = sdc_database[sdc_database$date_terminated == "", ]
+
 sdc_database$date_announced <- substr((sdc_database$date_announced), 1, 4)
 sdc_interest <- sdc_database[sdc_database$date_announced %in% c(2020:2021), ]
 
