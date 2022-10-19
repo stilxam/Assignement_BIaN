@@ -64,6 +64,17 @@ for(row in 1:nrow(company_matrix_2020_2021))
   }
 }
 
+for(row in 1:nrow(company_matrix_2020_2021)){
+  
+  for(col in 1:ncol(company_matrix_2020_2021)){
+    
+    if (company_matrix_2020_2021[row, col] == 1){
+      
+      company_matrix_2020_2021[col, row] = 0
+    }
+  }
+}
+
 company_deals_network_2020_2021 <- igraph::graph.incidence(company_matrix_2020_2021)
 
 g_2020_2021=graph.adjacency(company_matrix_2020_2021,mode='undirected')
@@ -142,6 +153,17 @@ for(row in 1:nrow(company_matrix_2017_2018))
     if (company_matrix_2017_2018[row, col] == 2)
     {
       company_matrix_2017_2018[row, col] = 0
+    }
+  }
+}
+
+for(row in 1:nrow(company_matrix_2017_2018)){
+  
+  for(col in 1:ncol(company_matrix_2017_2018)){
+    
+    if (company_matrix_2017_2018[row, col] == 1){
+      
+      company_matrix_2017_2018[col, row] = 0
     }
   }
 }
