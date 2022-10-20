@@ -47,7 +47,7 @@ postTXN <- csvTXN$Reported.EPS
 
 
 plot(x = predate, y =postAMD,type = "l",
-     col = 1, xlab = "date", ylab = "Earnings Per Share ($)", ylim = c(-5,5), main = "Earning Per Share ($) of Key Chip Manufacturers After The start of COVID-19")
+     col = 1, xlab = "date", ylab = "Earnings Per Share ($)", ylim = c(-5,5), main = "Earning Per Share ($) of High Degree Centrality Manufacturers After The start of COVID-19")
 lines(x = predate,y =postHTHIY, col=2)
 lines(x = predate,y =postIBM, col=3)
 lines(x = predate,y =postINTC, col=4)
